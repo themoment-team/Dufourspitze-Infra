@@ -7,7 +7,7 @@ do
   RESPONSE=$(curl -s http://localhost:8080/v1/uncomfortable)
 #  UP_COUNT=$(echo $RESPONSE | grep 'UP' | wc -l)
 
-  if [ $STATUSCODE -eq 200 ]
+  if [ $RESPONSE.statuscode -eq 200 ]
   then # $RESPONSE 가 status 200 인지 확인
       echo "> Health check 성공"
       break
