@@ -5,10 +5,10 @@ echo "> curl -s http://localhost:8080/v1/uncomfortable "
 for RETRY_COUNT in {1..15}
 do
   RESPONSE=$(curl -s http://localhost:8080/v1/uncomfortable)
-  UP_COUNT=$(echo $RESPONSE | grep 'UP' | wc -l)
+#  UP_COUNT=$(echo $RESPONSE | grep 'UP' | wc -l)
 
-  if [ $UP_COUNT -ge 1 ]
-  then # $up_count >= 1 ("UP" 문자열이 있는지 검증)
+  if [ $CODE -ne 200 ]
+  then # $RESPONSE 가 status 200 인지 확인
       echo "> Health check 성공"
       break
   else
